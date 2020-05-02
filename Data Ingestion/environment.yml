@@ -1,0 +1,10 @@
+name: reddit-scraper
+channels:
+    - anaconda
+    - defaults
+dependencies:
+    - python
+    - pandas
+    - pip
+    - pip:
+        - psaw
