@@ -1,13 +1,12 @@
-// Make a new csv with all posts contatining mentions of state names for initial analysis with number of cases
-
 import org.apache.spark._
 import org.apache.spark.SparkContext._
 import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
 
+import scala.collection.mutable.ListBuffer
+
 object Analysis
 {
-
     val states = List("Alaska",
               "Alabama",
               "Arkansas",
@@ -67,15 +66,14 @@ object Analysis
 
     def main(args: Array[String])
     {
-        val conf = new SparkConf().setAppName("Analysis")
-        val sc = new SparkContext(conf)
         val spark = SparkSession.builder().appName("Analysis").getOrCreate()
         spark.sparkContext.setLogLevel("ERROR")
 
         mentions(spark, Seq("Reddit_Cleaning/posts/*.csv"), "Reddit_Mentions/posts")
         mentions(spark, Seq("Reddit_Cleaning/comments/*.csv"), "Reddit_Mentions/comments")
         mentions(spark, Seq("Reddit_Cleaning/posts/*.csv", "Reddit_Cleaning/comments/*.csv"), "Reddit_Mentions/posts_comments")
-        //states_transform(spark)
+        states_transform(spark)
+        correlations(spark)
     }
 
     def mentions(spark: SparkSession, input: Seq[String], output: String)
@@ -111,6 +109,7 @@ object Analysis
         var cases = spark.read.option("header", true).option("multiLine",true).option("inferSchema", "true").option("timestampFormat", "yyyy-MM-dd HH:mm:ss").csv("NYTimes_Cleaning/cases/*.csv")
         var deaths = spark.read.option("header", true).option("multiLine",true).option("inferSchema", "true").option("timestampFormat", "yyyy-MM-dd HH:mm:ss").csv("NYTimes_Cleaning/deaths/*.csv")
 
+        import spark.implicits._
         for(state <- states)
         {
             val dates = cases.select("date").rdd.map(r => r(0)).collect.toList.map(_.toString)
@@ -119,7 +118,7 @@ object Analysis
             val pc_list = posts_comments.select(state).rdd.map(r => r(0)).collect.toList.map(_.toString.toInt)
             val case_list = cases.select(state).rdd.map(r => r(0)).collect.toList.map(_.toString.toInt)
             val death_list = deaths.select(state).rdd.map(r => r(0)).collect.toList.map(_.toString.toInt)
-            val df = spark.sparkContext.parallelize(combineLists(dates, post_list, comment_list, pc_list, case_list, death_list)).toDF("Date", "Posts", "Comments", "Posts_Comments", "Cases", "Deaths")
+            val df = spark.sparkContext.parallelize(dates zip post_list zip comment_list zip pc_list zip case_list zip death_list map {case (((((a, b), c), d), e), f) => (a, b, c, d, e, f)}).toDF("Date", "Posts", "Comments", "Posts_Comments", "Cases", "Deaths")
             df.coalesce(1).write.option("header", true).option("multiLine",true).option("inferSchema", "true").option("timestampFormat", "yyyy-MM-dd").csv("States/" + state)
         }
     }
@@ -132,6 +131,8 @@ object Analysis
         var comments_deaths = new ListBuffer[Double]()
         var pc_cases = new ListBuffer[Double]()
         var pc_deaths = new ListBuffer[Double]()
+
+        import spark.implicits._
         for(state <- states)
         {
             var df_state = spark.read.option("header", true).option("multiLine",true).option("inferSchema", "true").option("timestampFormat", "yyyy-MM-dd HH:mm:ss").csv("States/" + state + "/*.csv")
@@ -141,14 +142,8 @@ object Analysis
             comments_deaths += df_state.stat.corr("Comments", "Deaths")
             pc_cases += df_state.stat.corr("Posts_Comments", "Cases")
             pc_deaths += df_state.stat.corr("Posts_Comments", "Deaths")
-            val df_corr = spark.sparkContext.parallelize(combineLists(states, posts_cases.toList, posts_deaths.toList, comments_cases.toList, comments_deaths.toList, pc_cases.toList, pc_deaths.toList)).toDF("State", "Posts_Cases", "Posts_Deaths", "Comments_Cases", "Comments_Deaths", "Posts_Comments_Cases", "Posts_Comments_Deaths")
-            df_corr.coalesce(1).write.option("header", true).option("multiLine",true).option("inferSchema", "true").csv("Correlations/" + state)
         }
-    }
-
-    def combineLists[A](ss:List[A]*)
-    {
-        val sa = ss.reverse;
-        (sa.head.map(List(_)) /: sa.tail)(_.zip(_).map(p=>p._2 :: p._1))
+        val df_corr = spark.sparkContext.parallelize(states zip posts_cases.toList zip posts_deaths.toList zip comments_cases.toList zip comments_deaths.toList zip pc_cases.toList zip pc_deaths.toList map {case ((((((a, b), c), d), e), f), g) => (a, b, c, d, e, f, g)}).toDF("State", "Posts_Cases", "Posts_Deaths", "Comments_Cases", "Comments_Deaths", "Posts_Comments_Cases", "Posts_Comments_Deaths")
+        df_corr.coalesce(1).write.option("header", true).option("multiLine",true).option("inferSchema", "true").csv("Correlations")
     }
 }
