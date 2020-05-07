@@ -62,14 +62,21 @@ states = ["Alaska",
 
 app = Flask(__name__)
 
-@app.route("/", methods = ['GET', 'POST'])
+@app.route("/")
 def home():
+    return render_template('index.html')
+
+
+@app.route("/states", methods = ['GET', 'POST'])
+def states_graph():
     if request.method == 'POST':
         option = request.form.get("states")
         correlation = list(csv.reader(open("correlations.csv")))[states.index(option) + 1][5]
-        return render_template('index.html', states=states, embedState=option, correlation=correlation) #insert
+        return render_template('states.html', states=states, embedState=option, correlation=correlation) #insert
     else:
-        return render_template('index.html', states=states)
+        return render_template('states.html', states=states)
+
+
 
 if __name__ == '__main__':
     app.run(host="localhost", port=PORT)

@@ -1,0 +1,1433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Using Reddit to track Coronavirus Spread - Statewise Correlation Plots</title>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Using Reddit to Track Coronavirus Spread</h1>
+    <p style="text-align: center;">Choose your state and graph with correlation will be shown below</p>
+    <form style="text-align: center;" action="/states" method="POST">
+        <select name="states" method="GET" action="/states">
+            <option value="{{states[0]}}" selected>{{states[0]}}</option>
+            {% for state in states[1:] %}
+            {% if embedState == state %}
+            <option value="{{state}}" selected>{{state}}</option>"
+            {% else %}
+            <option value="{{state}}">{{state}}</option>"
+            {% endif %}
+            {% endfor %}
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+    {% if embedState and correlation %}
+    <p style="text-align: center;">Correlation: {{correlation}}</p>
+    {% if embedState == "Alabama" %}
+    <div class='tableauPlaceholder' id='viz1588874818344' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Alabama&#47;1_rss.png'
+                style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+        <param name='embed_code_version' value='3' />
+        <param name='site_root' value='' />
+        <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Alabama' />
+        <param name='tabs' value='no' />
+        <param name='toolbar' value='yes' />
+        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Alabama&#47;1.png' />
+        <param name='animate_transition' value='yes' />
+        <param name='display_static_image' value='yes' />
+        <param name='display_spinner' value='yes' />
+        <param name='display_overlay' value='yes' />
+        <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588874818344');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+
+    {% endif %}
+    {% if embedState == "Alaska" %}
+    <div class='tableauPlaceholder' id='viz1588780302617' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Alaska&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Alaska' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Alaska&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780302617');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Arkansas" %}
+    <div class='tableauPlaceholder' id='viz1588780366825' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Arkansas&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Arkansas' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Arkansas&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780366825');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "American Samoa" %}
+    <div class='tableauPlaceholder' id='viz1588780335659' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;AmericanSamoa&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;AmericanSamoa' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;AmericanSamoa&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780335659');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Arizona" %}
+    <div class='tableauPlaceholder' id='viz1588780352106' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Arizona&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Arizona' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Arizona&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780352106');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "California" %}
+    <div class='tableauPlaceholder' id='viz1588780378580' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;California&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;California' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;California&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780378580');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Colorado" %}
+    <div class='tableauPlaceholder' id='viz1588780390690' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Colorado&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Colorado' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Colorado&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780390690');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Connecticut" %}
+    <div class='tableauPlaceholder' id='viz1588780401988' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Connecticut&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Connecticut' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Connecticut&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780401988');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "District of Columbia" %}
+    <div class='tableauPlaceholder' id='viz1588780421971' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;DistrictofColumbia&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'
+            style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;DistrictofColumbia' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;DistrictofColumbia&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780421971');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Delaware" %}
+    <div class='tableauPlaceholder' id='viz1588780411611' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Delaware&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Delaware' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Delaware&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780411611');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Florida" %}
+    <div class='tableauPlaceholder' id='viz1588780435416' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Florida&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Florida' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Florida&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780435416');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Georgia" %}
+    <div class='tableauPlaceholder' id='viz1588780448409' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Georgia&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Georgia' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Georgia&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780448409');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Guam" %}
+    <div class='tableauPlaceholder' id='viz1588780463606' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Guam&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Guam' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Guam&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780463606');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Hawaii" %}
+    <div class='tableauPlaceholder' id='viz1588780475538' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Hawaii&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Hawaii' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Hawaii&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780475538');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Idaho" %}
+    <div class='tableauPlaceholder' id='viz1588780488358' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Idaho&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Idaho' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Idaho&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780488358');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Iowa" %}
+    <div class='tableauPlaceholder' id='viz1588780528999' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Iowa&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Iowa' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Iowa&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780528999');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Illinois" %}
+    <div class='tableauPlaceholder' id='viz1588780504809' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Illinois&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Illinois' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Illinois&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780504809');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Indiana" %}
+    <div class='tableauPlaceholder' id='viz1588780517989' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Indiana&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Indiana' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Indiana&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780517989');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Kansas" %}
+    <div class='tableauPlaceholder' id='viz1588780541150' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Kansas&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Kansas' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Kansas&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780541150');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Kentucky" %}
+    <div class='tableauPlaceholder' id='viz1588780550757' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Kentucky&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Kentucky' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Kentucky&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780550757');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Louisiana" %}
+    <div class='tableauPlaceholder' id='viz1588780561773' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Louisiana&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Louisiana' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Louisiana&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780561773');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Massachusetts" %}
+    <div class='tableauPlaceholder' id='viz1588780596327' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Massachusetts&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Massachusetts' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Massachusetts&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780596327');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Maryland" %}
+    <div class='tableauPlaceholder' id='viz1588780585111' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Maryland&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Maryland' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Maryland&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780585111');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Maine" %}
+    <div class='tableauPlaceholder' id='viz1588780573739' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Maine&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Maine' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Maine&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780573739');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Michigan" %}
+    <div class='tableauPlaceholder' id='viz1588780608949' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Michigan&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Michigan' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Michigan&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780608949');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Minnesota" %}
+    <div class='tableauPlaceholder' id='viz1588780620958' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Minnesota&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Minnesota' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Minnesota&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780620958');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Mississippi" %}
+    <div class='tableauPlaceholder' id='viz1588780631318' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Mississippi&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Mississippi' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Mississippi&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780631318');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Missouri" %}
+    <div class='tableauPlaceholder' id='viz1588780645804' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Missouri&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Missouri' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Missouri&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780645804');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Montana" %}
+    <div class='tableauPlaceholder' id='viz1588780656966' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Montana&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Montana' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Montana&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780656966');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "North Carolina" %}
+    <div class='tableauPlaceholder' id='viz1588780749228' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;NorthCarolina&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;NorthCarolina' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;NorthCarolina&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780749228');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "North Dakota" %}
+    <div class='tableauPlaceholder' id='viz1588780760709' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;NorthDakota&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;NorthDakota' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;NorthDakota&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780760709');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Nebraska" %}
+    <div class='tableauPlaceholder' id='viz1588780669356' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Nebraska&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Nebraska' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Nebraska&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780669356');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "New Hampshire" %}
+    <div class='tableauPlaceholder' id='viz1588780696280' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;NewHampshire&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;NewHampshire' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;NewHampshire&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780696280');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "New Jersey" %}
+    <div class='tableauPlaceholder' id='viz1588780707837' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;NewJersey&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;NewJersey' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;NewJersey&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780707837');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "New Mexico" %}
+    <div class='tableauPlaceholder' id='viz1588780722169' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;NewMexico&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;NewMexico' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;NewMexico&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780722169');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Nevada" %}
+    <div class='tableauPlaceholder' id='viz1588780682649' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Nevada&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Nevada' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Nevada&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780682649');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "New York" %}
+    <div class='tableauPlaceholder' id='viz1588780736278' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;NewYork&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;NewYork' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;NewYork&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780736278');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Northern Mariana Islands" %}
+    <div class='tableauPlaceholder' id='viz1588780769934' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;NorthernMarianaIslands&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'
+            style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;NorthernMarianaIslands' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;NorthernMarianaIslands&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780769934');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Ohio" %}
+    <div class='tableauPlaceholder' id='viz1588780782020' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Ohio&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Ohio' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Ohio&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780782020');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Oklahoma" %}
+    <div class='tableauPlaceholder' id='viz1588780792880' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Oklahoma&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Oklahoma' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Oklahoma&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780792880');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Oregon" %}
+    <div class='tableauPlaceholder' id='viz1588780803971' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Oregon&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Oregon' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Oregon&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780803971');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Pennsylvania" %}
+    <div class='tableauPlaceholder' id='viz1588780815786' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Pennsylvania&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Pennsylvania' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Pennsylvania&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780815786');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Puerto Rico" %}
+    <div class='tableauPlaceholder' id='viz1588780827799' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;PuertoRico&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;PuertoRico' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;PuertoRico&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780827799');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Rhode Island" %}
+    <div class='tableauPlaceholder' id='viz1588780840476' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;RhodeIsland&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;RhodeIsland' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;RhodeIsland&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780840476');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "South Carolina" %}
+    <div class='tableauPlaceholder' id='viz1588780854047' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;SouthCarolina&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;SouthCarolina' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;SouthCarolina&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780854047');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "South Dakota" %}
+    <div class='tableauPlaceholder' id='viz1588780869830' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;SouthDakota&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;SouthDakota' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;SouthDakota&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780869830');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Tennessee" %}
+    <div class='tableauPlaceholder' id='viz1588780879296' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Tennessee&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Tennessee' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Tennessee&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780879296');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Texas" %}
+    <div class='tableauPlaceholder' id='viz1588780889634' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Texas&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Texas' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Texas&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780889634');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Utah" %}
+    <div class='tableauPlaceholder' id='viz1588780900452' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Utah&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Utah' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Utah&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780900452');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Virginia" %}
+    <div class='tableauPlaceholder' id='viz1588780941400' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Virginia&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Virginia' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Virginia&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780941400');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Virgin Islands" %}
+    <div class='tableauPlaceholder' id='viz1588780928308' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;VirginIslands&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;VirginIslands' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;VirginIslands&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780928308');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Vermont" %}
+    <div class='tableauPlaceholder' id='viz1588780911566' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Vermont&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Vermont' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Vermont&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780911566');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Washington" %}
+    <div class='tableauPlaceholder' id='viz1588780954402' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Washington&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Washington' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Washington&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780954402');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Wisconsin" %}
+    <div class='tableauPlaceholder' id='viz1588780979443' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Wisconsin&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Wisconsin' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Wisconsin&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780979443');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "West Virginia" %}
+    <div class='tableauPlaceholder' id='viz1588780967403' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;WestVirginia&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;WestVirginia' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;WestVirginia&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780967403');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% if embedState == "Wyoming" %}
+    <div class='tableauPlaceholder' id='viz1588780991039' style='position: relative'><noscript><a href='#'><img alt=' '
+                    src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Wyoming&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='RedditmentionsvsCOVIDcasesperstate&#47;Wyoming' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Re&#47;RedditmentionsvsCOVIDcasesperstate&#47;Wyoming&#47;1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' /></object></div>
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1588780991039');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        vizElement.style.width = '100%';
+        vizElement.style.height = (divElement.offsetWidth * 0.40) + 'px';
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    </script>
+    {% endif %}
+    {% endif %}
+</body>
+
+</html>

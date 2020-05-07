@@ -85,6 +85,9 @@ object Analysis
 
         // Find correlations
         correlations(spark)
+
+        // Summarization of mentions, cases and deaths
+        summarization(spark)
     }
 
     // Find the number of mentions of states
@@ -148,7 +151,7 @@ object Analysis
             // Zip all the columns and create dataframe
             var df = spark.sparkContext.parallelize(dates zip post_list zip comment_list zip pc_list zip case_list zip death_list map {case (((((a, b), c), d), e), f) => (a, b, c, d, e, f)}).toDF(columns: _*)
 
-            // Write to HDFS in CSV
+            // Write state data to HDFS in CSV
             df.coalesce(1).write.option("header", true).option("multiLine",true).option("inferSchema", "true").option("timestampFormat", "yyyy-MM-dd").csv("States/" + state)
 
             // Normalize columns that are not date
@@ -159,7 +162,7 @@ object Analysis
                     df = df.withColumn(column, (col(column) - min_col) / max_col)
             }
 
-            // Write normalized data to HDFS in CSV
+            // Write normalized state data to HDFS in CSV
             df.coalesce(1).write.option("header", true).option("multiLine",true).option("inferSchema", "true").option("timestampFormat", "yyyy-MM-dd").csv("States_Normalized/" + state)
 
             // To save to hive table -
@@ -200,7 +203,49 @@ object Analysis
         // Write Dataframe to HDFS as CSV
         df_corr.coalesce(1).write.option("header", true).option("multiLine",true).option("inferSchema", "true").csv("Correlations")
 
-        // To save to hive table - 
+        // To save to hive table -
         // df_corr.write.mode(SaveMode.Overwrite).saveAsTable(sys.env("USER") + ".correlations")
+    }
+
+    // Summary of mentions, cases and deaths
+    def summarization(spark: SparkSession)
+    {
+        // Temp list buffers for columns
+        var totals = new ListBuffer[Double]()
+        var measure = new ListBuffer[String]()
+
+        // Finding total number of mentions across states
+        measure += "Mentions"
+        var posts_comments = spark.read.option("header", true).option("multiLine",true).option("inferSchema", "true").option("timestampFormat", "yyyy-MM-dd").csv("Reddit_Mentions/posts_comments/*.csv").cache()
+        var counter: Long = 0
+
+        // Get sum of number of mentions for each state
+        states.foreach(state => counter += posts_comments.agg(sum(state).cast("long")).first.getLong(0))
+        totals += counter
+
+        // Finding total number of cases across states
+        measure += "Cases"
+        counter = 0
+        var cases = spark.read.option("header", true).option("multiLine",true).option("inferSchema", "true").option("timestampFormat", "yyyy-MM-dd").csv("NYTimes_Cleaning/cases/*.csv").cache()
+
+        // Get sum of last element of each state (since number of cases at the moment is always a running sum)
+        states.foreach(counter += cases.select(_).rdd.map(r => r(0)).collect.toList.map(_.toString.toInt).last)
+        totals += counter
+
+        // Finding total number of deaths across states
+        measure += "Deaths"
+        counter = 0
+        var deaths = spark.read.option("header", true).option("multiLine",true).option("inferSchema", "true").option("timestampFormat", "yyyy-MM-dd").csv("NYTimes_Cleaning/deaths/*.csv").cache()
+
+        // Get sum of last element of each state (since number of deaths at the moment is always a running sum)
+        states.foreach(counter += deaths.select(_).rdd.map(r => r(0)).collect.toList.map(_.toString.toInt).last)
+        totals += counter
+
+        import spark.implicits._
+        // Make dataframe by zipping the lists
+        val df = spark.sparkContext.parallelize(measure.toList zip totals.toList).toDF("Measure", "Totals")
+
+        // Write dataframe to csv
+        df.coalesce(1).write.option("header", true).option("multiLine",true).option("inferSchema", "true").csv("Summarization")
     }
 }
