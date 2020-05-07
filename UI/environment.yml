@@ -1,0 +1,7 @@
+name: reddit_covid
+channels:
+    - anaconda
+    - defaults
+dependencies:
+    - python
+    - flask
