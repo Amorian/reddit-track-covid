@@ -35,9 +35,9 @@ Analysis:
 * Run the `analysis.sh` script for ease of use.
 * If you choose not to use the script, load the required modules and run it through spark2-submit. The commands can be derived from the scripts themselves
 
-Application:
+Webpage:
 
-* * Install the Anaconda environment
+* Install the Anaconda environment
 ```bash
 conda env create -f environment.yml
 ```
@@ -55,5 +55,8 @@ Outputs:
 
 * Run `get-output.sh` to get all the outputs to the local directory.
 * If you choose not to use the script, the commands to get all the output data can be found there.
+* The tableau workbook is available as `Normalized_Plots.twb` here.
 
-The tableau workbook is available as `Normalized_Plots.twb`
+Extracts:
+
+* Tableau data extracts and dashboard data, nothing to run or do here.
